@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudarsan K - Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js" integrity="sha512-vFqqmx0gD0j2BAZiu8zVxjo5rVE8e8uakn5Yyu0ZOfyv+8aB4d56Wd9mb6A7aRdhjPkMc7qnnrgmSxZe+F4qYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-bar"><span class="preloader-progress"></span></div>
+      <div class="preloader-text" id="preloader-text">INITIALIZING...</div>
+    </div>
+  </div>
+  <canvas id="starfield-canvas"></canvas>
+  <div class="grid-floor"></div>
+  <div class="custom-cursor">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <div class="nav-active-indicator" aria-hidden="true"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1>Hello, I’m <span>Sudarsan</span></h1>
+          <p>I'm a Full Stack Developer with a strong interest in Data Analytics, focused on creating efficient web application and data-driven solutions. </p>
+        </div>
+
+        <div class="hero-visual reveal">
+          <span class="float-dot dot-1"></span>
+          <span class="float-dot dot-2"></span>
+          <span class="float-dot dot-3"></span>
+          <div class="hero-glow"></div>
+          <div class="orbital-system">
+            <div class="center-core"><span class="core-text">SKILLS</span></div>
+            <div class="orbit ring-1">
+              <div class="satellite"><span>HTML</span></div>
+              <div class="satellite"><span>CSS</span></div>
+              <div class="satellite"><span>JS</span></div>
+              <div class="satellite"><span>Python</span></div>
+            </div>
+            <div class="orbit ring-2">
+              <div class="satellite"><span>C++</span></div>
+              <div class="satellite"><span>C</span></div>
+              <div class="satellite"><span>Java</span></div>
+              <div class="satellite"><span>SQL</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about reveal" id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>I build modern full-stack applications and data-driven systems that focus on performance, scalability, and real-world usability. I enjoy creating responsive web experiences, designing efficient backend architectures, and turning raw data into meaningful insights through analytics and visualization.</p>
+        <p>Most applications today focus only on appearance! I focus on functionality, speed, and user experience. From developing seamless frontends with modern frameworks to building optimized APIs and analyzing complex datasets, I like creating solutions that are both practical and impactful.</p>
+        <p>Beyond coding, I enjoy exploring emerging technologies, competitive gaming, cinema, and continuously improving my understanding of AI, Machine Learning, and scalable software systems.</p>
+      </div>
+    </section>
+
+    <section class="section skills reveal" id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skill-list">
+          <div class="skill-item reveal"><i class="devicon-python-plain colored skill-icon" aria-hidden="true"></i><span>Python</span></div>
+          <div class="skill-item reveal"><i class="devicon-react-original colored skill-icon" aria-hidden="true"></i><span>React</span></div>
+          <div class="skill-item reveal"><i class="devicon-javascript-plain colored skill-icon" aria-hidden="true"></i><span>JavaScript</span></div>
+          <div class="skill-item reveal"><i class="devicon-nodejs-plain-wordmark colored skill-icon" aria-hidden="true"></i><span>Node.js</span></div>
+          <div class="skill-item reveal"><i class="devicon-mongodb-plain colored skill-icon" aria-hidden="true"></i><span>MongoDB</span></div>
+          <div class="skill-item reveal"><i class="devicon-java-plain colored skill-icon" aria-hidden="true"></i><span>Java</span></div>
+          <div class="skill-item reveal"><i class="devicon-html5-plain colored skill-icon" aria-hidden="true"></i><span>HTML</span></div>
+          <div class="skill-item reveal"><i class="devicon-css3-plain colored skill-icon" aria-hidden="true"></i><span>CSS</span></div>
+          <div class="skill-item reveal"><i class="devicon-mysql-plain colored skill-icon" aria-hidden="true"></i><span>MySQL</span></div>
+          <div class="skill-item reveal"><i class="devicon-fastapi-plain colored skill-icon" aria-hidden="true"></i><span>FastAPI</span></div>
+          <div class="skill-item reveal"><img class="skill-icon powerbi-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/powerbi.svg" alt="Power BI logo"><span>Power BI</span></div>
+          <div class="skill-item reveal"><i class="devicon-cplusplus-plain colored skill-icon" aria-hidden="true"></i><span>C++</span></div>
+          <div class="skill-item reveal"><i class="devicon-c-plain colored skill-icon" aria-hidden="true"></i><span>C</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects reveal" id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <h3>Project One</h3>
+            <p>A website or app project description goes here. Mention the problem you solved and the technology used.</p>
+          </article>
+          <article class="project-card reveal">
+            <h3>Project Two</h3>
+            <p>Another project highlight with a quick overview of what it does and why it matters.</p>
+          </article>
+          <article class="project-card reveal">
+            <h3>Project Three</h3>
+            <p>A third project summary to show variety and a stronger portfolio presence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact reveal" id="contact">
+      <div class="container contact-container">
+        <div class="contact-header">
+          <h2>Contact</h2>
+          <p>Please contact me directly through this email or use the form below:</p>
+          <p class="contact-email">Email: <a href="mailto:sudarsan.renu@gmail.com">sudarsan.renu@gmail.com</a></p>
+        </div>
+        
+        <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/mwvzljrb" novalidate>
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <div class="field-shell">
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <div class="field-shell">
+              <textarea id="message" name="message" placeholder="Type your message here..." rows="6" required></textarea>
+            </div>
+          </div>
+          
+          <button type="submit" class="form-button">
+            <span>Submit</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 Sudarsan K. Built with HTML and CSS.</div>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html>
