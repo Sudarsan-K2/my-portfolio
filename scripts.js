@@ -370,6 +370,7 @@ window.addEventListener('load', () => {
 const projectModal = document.getElementById('project-modal');
 const projectModalClose = document.getElementById('project-modal-close');
 const projectModalOpeners = document.querySelectorAll('[data-open-project]');
+const projectModalBackButtons = document.querySelectorAll('[data-close-project]');
 
 function openProjectModal() {
   if (!projectModal) return;
@@ -391,6 +392,13 @@ projectModalOpeners.forEach((button) => {
 });
 
 projectModalClose?.addEventListener('click', closeProjectModal);
+
+projectModalBackButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    closeProjectModal();
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 
 projectModal?.addEventListener('click', (event) => {
   if (event.target === projectModal) {
