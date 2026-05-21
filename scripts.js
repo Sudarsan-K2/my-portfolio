@@ -367,6 +367,43 @@ window.addEventListener('load', () => {
   if (firstLink) setActiveNav(firstLink);
 });
 
+const projectModal = document.getElementById('project-modal');
+const projectModalClose = document.getElementById('project-modal-close');
+const projectModalOpeners = document.querySelectorAll('[data-open-project]');
+
+function openProjectModal() {
+  if (!projectModal) return;
+  projectModal.classList.add('is-open');
+  projectModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  projectModalClose?.focus();
+}
+
+function closeProjectModal() {
+  if (!projectModal) return;
+  projectModal.classList.remove('is-open');
+  projectModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+
+projectModalOpeners.forEach((button) => {
+  button.addEventListener('click', openProjectModal);
+});
+
+projectModalClose?.addEventListener('click', closeProjectModal);
+
+projectModal?.addEventListener('click', (event) => {
+  if (event.target === projectModal) {
+    closeProjectModal();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && projectModal?.classList.contains('is-open')) {
+    closeProjectModal();
+  }
+});
+
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {

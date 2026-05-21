@@ -99,9 +99,35 @@
       <div class="container">
         <h2>Projects</h2>
         <div class="project-grid">
-          <article class="project-card reveal">
-            <h3>Project One</h3>
-            <p>A website or app project description goes here. Mention the problem you solved and the technology used.</p>
+          <article class="project-card cyberpunk-card reveal">
+            <div class="cyber-card-inner">
+              <div class="cyber-card-copy">
+                <div class="cyber-card-header">
+                  <h3>EmpathAI</h3>
+                  <span class="status-chip">
+                    <span class="cyber-status-dot"></span>
+                    Online
+                  </span>
+                </div>
+                <p>A privacy-first multimodal affective computing interface. It combines real-time local facial expression detection with Google Gemini to provide emotionally adaptive conversational support.</p>
+                <div class="tech-list">
+                  <span class="tech-chip">FASTAPI</span>
+                  <span class="tech-chip">FACE-API.JS</span>
+                  <span class="tech-chip">PYTHON</span>
+                  <span class="tech-chip">GEMINI PRO</span>
+                  <span class="tech-chip">JS</span>
+                </div>
+                <button type="button" class="project-detail-button" data-open-project="empathai">View Case Study</button>
+              </div>
+              <div class="cyber-card-image">
+                <div class="cyber-card-image-inner">
+                  <p class="cyber-image-label">Live preview</p>
+                  <div class="cyber-image-panel">
+                    <span>Cyberpunk interface preview</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
           <article class="project-card reveal">
             <h3>Project Two</h3>
@@ -149,6 +175,45 @@
       </div>
     </section>
   </main>
+
+  <div id="project-modal" class="project-modal" aria-hidden="true">
+    <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button id="project-modal-close" class="project-modal-close" type="button" aria-label="Close project case study">&times;</button>
+      <div class="project-modal-scroll">
+        <div class="project-modal-stack">
+          <header class="project-modal-hero">
+            <h2 id="project-modal-title">EmpathAI</h2>
+            <p class="project-modal-subtitle">Privacy-First Multimodal Affective Computing Interface</p>
+            <p>Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
+          </header>
+
+          <section class="project-modal-section">
+            <h3>The Design Intent</h3>
+            <p>Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
+          </section>
+
+          <section class="project-modal-section project-modal-section-purple">
+            <h3>System Architecture</h3>
+            <p>The application uses a decoupled Client-Server architecture. The Edge Layer runs SSD MobileNet V1 locally to extract emotional tags. A lightweight JSON payload is sent via a FastAPI asynchronous endpoint. The Logic Layer performs Context-Aware Prompt Engineering using Google Gemini Pro, adapting the AI persona to the user's emotional state.</p>
+          </section>
+
+          <section class="project-modal-section">
+            <h3>Key Technical Decisions</h3>
+            <ul class="project-modal-list">
+              <li>Browser-based Edge computing via Face-API.js for absolute biometric privacy.</li>
+              <li>High-performance asynchronous FastAPI backend.</li>
+              <li>Context-Aware Prompt Engineering mapping 7 distinct emotional states in real-time.</li>
+            </ul>
+          </section>
+
+          <div class="project-modal-actions">
+            <a class="project-modal-primary" href="#">Access Live System</a>
+            <a class="project-modal-secondary" href="#">View Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">© 2026 Sudarsan K. Built with HTML and CSS.</div>
