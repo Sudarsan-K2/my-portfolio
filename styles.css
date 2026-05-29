@@ -793,6 +793,12 @@ img {
   grid-column: 1 / -1;
 }
 
+@media (min-width: 1024px) {
+  .project-grid .cyberpunk-card {
+    height: 520px;
+  }
+}
+
 .project-card {
   position: relative;
   padding: 1.75rem;
@@ -821,8 +827,11 @@ img {
 }
 
 .cyber-card-inner {
+  position: relative;
+  z-index: 2;
   display: grid;
   gap: 1.5rem;
+  height: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -833,9 +842,12 @@ img {
 }
 
 .cyber-card-copy {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+  min-width: 0;
 }
 
 .cyber-card-header {
@@ -848,7 +860,7 @@ img {
 .cyber-card-header h3 {
   margin: 0;
   color: #d7f8ff;
-  font-size: clamp(1.85rem, 2.2vw, 2.6rem);
+  font-size: clamp(1.75rem, 2vw, 2.45rem);
 }
 
 .status-chip {
@@ -871,6 +883,19 @@ img {
   background: #22c55e;
   box-shadow: 0 0 18px rgba(34, 197, 94, 0.9), inset 0 0 5px rgba(255, 255, 255, 0.6);
   animation: neon-pulse 1.8s ease-in-out infinite;
+}
+
+.building-chip {
+  border-color: rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.1);
+  color: #fde68a;
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.2);
+  animation: building-chip-glow 1.4s ease-in-out infinite;
+}
+
+.cyber-status-dot.building-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.95), inset 0 0 5px rgba(255, 255, 255, 0.65);
 }
 
 .tech-list {
@@ -899,13 +924,15 @@ img {
 }
 
 .project-detail-button {
+  position: relative;
+  z-index: 5;
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
   width: fit-content;
-  margin-top: 0.25rem;
+  margin-top: auto;
   padding: 0.85rem 1.25rem;
   border: 1px solid rgba(94, 234, 212, 0.55);
   border-radius: 999px;
@@ -914,6 +941,7 @@ img {
   font: inherit;
   font-weight: 800;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.2);
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
@@ -977,6 +1005,20 @@ img {
   transition: transform 0.45s ease, filter 0.45s ease;
 }
 
+.cyber-card-image img.project-image-contain {
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .cyber-card-image {
+    min-height: 0;
+  }
+
+  .cyber-card-image img {
+    min-height: 0;
+  }
+}
+
 .cyber-card-image:hover,
 .cyberpunk-card:hover .cyber-card-image {
   transform: translateY(-10px) scale(1.025);
@@ -988,6 +1030,11 @@ img {
 .cyberpunk-card:hover .cyber-card-image img {
   transform: scale(1.055);
   filter: saturate(1.18) contrast(1.08) brightness(1.05);
+}
+
+.cyber-card-image:hover img.project-image-contain,
+.cyberpunk-card:hover .cyber-card-image img.project-image-contain {
+  transform: none;
 }
 
 .project-card::after {
@@ -1700,6 +1747,18 @@ body.modal-open {
 
 .cyberpunk-card:hover .cyber-image {
   transform: translateY(-4px);
+}
+
+@keyframes building-chip-glow {
+  0%, 100% {
+    opacity: 0.72;
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.16);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.42);
+  }
 }
 
 .cyber-status-dot {

@@ -369,11 +369,140 @@ window.addEventListener('load', () => {
 
 const projectModal = document.getElementById('project-modal');
 const projectModalClose = document.getElementById('project-modal-close');
-const projectModalOpeners = document.querySelectorAll('[data-open-project]');
 const projectModalBackButtons = document.querySelectorAll('[data-close-project]');
+const projectModalTitle = document.getElementById('project-modal-title');
+const projectModalSubtitle = document.getElementById('project-modal-subtitle');
+const projectModalIntro = document.getElementById('project-modal-intro');
+const projectModalDesignTitle = document.getElementById('project-modal-design-title');
+const projectModalDesign = document.getElementById('project-modal-design');
+const projectModalArchitecture = document.getElementById('project-modal-architecture');
+const projectModalDecisions = document.getElementById('project-modal-decisions');
+const projectModalTech = document.getElementById('project-modal-tech');
+const projectModalPrimary = document.getElementById('project-modal-primary');
 
-function openProjectModal() {
+const projectDetails = {
+  empathai: {
+    title: 'EmpathAI',
+    subtitle: 'Privacy-First Multimodal Affective Computing Interface',
+    intro: 'Mental health support is inaccessible, and traditional AI chatbots are blind. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.',
+    designTitle: 'The Design Intent',
+    design: 'The goal was to make conversational AI emotionally aware without compromising privacy. The interface reads local facial-expression signals, converts them into lightweight emotional context, and uses that context to shape more supportive responses.',
+    architecture: 'The application uses a decoupled Client-Server architecture. The Edge Layer runs SSD MobileNet V1 locally to extract emotional tags. A lightweight JSON payload is sent via a FastAPI asynchronous endpoint. The Logic Layer performs Context-Aware Prompt Engineering using Google Gemini Pro, adapting the AI persona to the user emotional state.',
+    decisions: [
+      'Browser-based Edge computing via Face-API.js for absolute biometric privacy.',
+      'High-performance asynchronous FastAPI backend.',
+      'Context-Aware Prompt Engineering mapping 7 distinct emotional states in real time.',
+    ],
+    techLabel: 'EmpathAI technology stack',
+    tech: [
+      { icon: 'devicon-python-plain colored', label: 'Python' },
+      { icon: 'devicon-fastapi-plain colored', label: 'FastAPI' },
+      { icon: 'devicon-javascript-plain colored', label: 'JavaScript' },
+      { symbol: 'API', label: 'Face API' },
+      { symbol: 'AI', label: 'Gemini' },
+    ],
+    actionLabel: 'Access GitHub Repo',
+    actionUrl: 'https://github.com/Sudarsan-K2/Sales-Demand-Forecasting.git',
+  },
+  'forecast-inventory': {
+    title: 'Sales Demand Forecasting and Decision Support System',
+    subtitle: 'AI-Powered Sales Forecasting and Inventory Optimization Platform',
+    intro: 'A decision support system built with FastAPI, Facebook Prophet, and LangGraph. It combines time-series forecasting, natural language querying, RAG-based supply chain intelligence, and inventory optimization into one operational dashboard.',
+    designTitle: 'Decision System Goal',
+    design: 'The platform helps teams forecast demand, understand business risks, and make inventory decisions from both structured sales data and internal supply chain documents. It turns historical sales, promotions, oil prices, weather risk, and natural-language questions into practical planning signals.',
+    architecture: 'The React frontend connects to FastAPI endpoints for forecasting, inventory, chat, and retraining. Prophet JSON models power sales predictions with promotion and oil-price regressors. PostgreSQL stores historical sales, ChromaDB supports semantic document retrieval, and a LangGraph multi-agent ReAct assistant routes analysis through Analyst, Executive, and Risk agents with Text-to-SQL.',
+    decisions: [
+      'Prophet forecasting models use promotion and oil-price regressors for stronger demand estimates.',
+      'Inventory logic includes EOQ, safety stock, and stockout probability for decision-ready recommendations.',
+      'LangGraph coordinates Analyst, Executive, and Risk agents for natural-language analytics and Text-to-SQL.',
+      'RAG adds semantic search across internal supply chain documents through ChromaDB.',
+      'Live oil-price and weather-risk integrations support market-aware forecasting.',
+    ],
+    techLabel: 'Sales forecasting and inventory technology stack',
+    tech: [
+      { icon: 'devicon-react-original colored', label: 'React' },
+      { icon: 'devicon-fastapi-plain colored', label: 'FastAPI' },
+      { icon: 'devicon-python-plain colored', label: 'Prophet' },
+      { icon: 'devicon-postgresql-plain colored', label: 'PostgreSQL' },
+      { symbol: 'LG', label: 'LangGraph' },
+      { symbol: 'RAG', label: 'ChromaDB' },
+      { symbol: 'SQL', label: 'Text-to-SQL' },
+      { symbol: 'API', label: 'Open-Meteo' },
+    ],
+    actionLabel: 'Access GitHub Repo',
+    actionUrl: 'https://github.com/Sudarsan-K2/Sales-Demand-Forecasting.git',
+  },
+  safellm: {
+    title: 'SafeLLM: Local AI Security Proxy',
+    subtitle: 'A local proxy middleware designed to sanitize prompts and files before cloud LLM inference.',
+    intro: 'SafeLLM is a local proxy middleware interface designed to protect sensitive data before it leaves the local network. Users can type queries or upload source code files, while the Python backend securely strips credentials, email records, phone numbers, and payment patterns before forwarding the sanitized text payload to the Gemini API.',
+    designTitle: 'Security Intent',
+    design: 'The system addresses the privacy and data compliance risks of accidentally leaking internal secrets, passwords, or PII into public AI models. It acts as a local sanitization control point where prompts and files are parsed in memory, audited, and scrubbed into safe compliance masks before cloud transit.',
+    architecture: 'A custom Tailwind CSS dashboard client communicates with a FastAPI local proxy through protected API routes using JWT bearer tokens. The backend validates token authenticity, processes file-based text uploads entirely within local memory buffers, blocks dangerous binary formats, applies real-time regular-expression sanitizers, persists user session logs in SQLite, and forwards only sanitized content to the Gemini API.',
+    decisions: [
+      'Migrated session management to a server-side SQLite relational database for reliable history tracking.',
+      'Implemented cryptographic JWT bearer token authentication across protected API endpoints.',
+      'Integrated bcrypt salting and hashing to completely eliminate plaintext password storage.',
+      'Enforced strict per-user data isolation via user-scoped backend database queries.',
+      'Built regex-driven filters to dynamically redact sensitive patterns like emails and passwords.',
+      'Implemented a file gateway sandbox that blocks executable extensions (.exe, .bat) before processing text.',
+    ],
+    techLabel: 'SafeLLM technology stack',
+    tech: [
+      { icon: 'devicon-python-plain colored', label: 'Python' },
+      { icon: 'devicon-fastapi-plain colored', label: 'FastAPI' },
+      { icon: 'devicon-sqlite-plain colored', label: 'SQLite' },
+      { symbol: 'JWT', label: 'Auth' },
+      { symbol: 'BC', label: 'bcrypt' },
+      { symbol: 'AI', label: 'Gemini 2.5' },
+      { symbol: 'PII', label: 'Sanitizers' },
+      { symbol: 'SEC', label: 'Proxy' },
+    ],
+    actionLabel: 'Access GitHub Repo',
+    actionUrl: 'https://github.com/Sudarsan-K2/SafeLLM-Gateway.git',
+  },
+};
+
+function renderProjectTech(techItems) {
+  if (!projectModalTech) return;
+
+  projectModalTech.innerHTML = techItems.map((item) => {
+    if (item.icon) {
+      return `<div class="project-tech-icon"><i class="${item.icon}" aria-hidden="true"></i><span>${item.label}</span></div>`;
+    }
+
+    return `<div class="project-tech-icon"><span class="project-tech-symbol">${item.symbol}</span><span>${item.label}</span></div>`;
+  }).join('');
+}
+
+function setProjectModalContent(projectId) {
+  const details = projectDetails[projectId] || projectDetails.empathai;
+
+  if (projectModalTitle) projectModalTitle.textContent = details.title;
+  if (projectModalSubtitle) projectModalSubtitle.textContent = details.subtitle;
+  if (projectModalIntro) projectModalIntro.textContent = details.intro;
+  if (projectModalDesignTitle) projectModalDesignTitle.textContent = details.designTitle;
+  if (projectModalDesign) projectModalDesign.textContent = details.design;
+  if (projectModalArchitecture) projectModalArchitecture.textContent = details.architecture;
+  if (projectModalDecisions) {
+    projectModalDecisions.innerHTML = details.decisions.map((decision) => `<li>${decision}</li>`).join('');
+  }
+  if (projectModalTech) {
+    projectModalTech.setAttribute('aria-label', details.techLabel);
+    renderProjectTech(details.tech);
+  }
+  if (projectModalPrimary) {
+    projectModalPrimary.textContent = details.actionLabel;
+    projectModalPrimary.setAttribute('href', details.actionUrl);
+    projectModalPrimary.setAttribute('target', '_blank');
+    projectModalPrimary.setAttribute('rel', 'noopener noreferrer');
+  }
+}
+
+function openProjectModal(event) {
   if (!projectModal) return;
+  const projectId = event?.currentTarget?.dataset.openProject || 'empathai';
+  setProjectModalContent(projectId);
   projectModal.classList.add('is-open');
   projectModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
@@ -387,8 +516,10 @@ function closeProjectModal() {
   document.body.classList.remove('modal-open');
 }
 
-projectModalOpeners.forEach((button) => {
-  button.addEventListener('click', openProjectModal);
+document.addEventListener('click', (event) => {
+  const opener = event.target.closest('[data-open-project]');
+  if (!opener) return;
+  openProjectModal({ currentTarget: opener });
 });
 
 projectModalClose?.addEventListener('click', closeProjectModal);

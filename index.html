@@ -109,7 +109,7 @@
                   <span class="tech-chip">FASTAPI</span>
                   <span class="tech-chip">FACE-API.JS</span>
                   <span class="tech-chip">PYTHON</span>
-                  <span class="tech-chip">GEMINI PRO</span>
+                  <span class="tech-chip">GEMINI</span>
                   <span class="tech-chip">JS</span>
                 </div>
                 <button type="button" class="project-detail-button" data-open-project="empathai">
@@ -124,13 +124,61 @@
               </div>
             </div>
           </article>
-          <article class="project-card reveal">
-            <h3>Project Two</h3>
-            <p>Another project highlight with a quick overview of what it does and why it matters.</p>
+          <article class="project-card cyberpunk-card reveal">
+            <div class="cyber-card-inner">
+              <div class="cyber-card-copy">
+                <div class="cyber-card-header">
+                  <h3>Sales Demand Forecasting and Decision Support System</h3>
+                </div>
+                <p>An AI-powered forecasting and inventory optimization platform that combines Prophet time-series models, FastAPI APIs, RAG-based supply chain intelligence, and a multi-agent chat assistant.</p>
+                <div class="tech-list">
+                  <span class="tech-chip">FASTAPI</span>
+                  <span class="tech-chip">PROPHET</span>
+                  <span class="tech-chip">LANGGRAPH</span>
+                  <span class="tech-chip">POSTGRESQL</span>
+                  <span class="tech-chip">CHROMADB</span>
+                </div>
+                <button type="button" class="project-detail-button" data-open-project="forecast-inventory">
+                  <span>View Details</span>
+                  <span class="button-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+              <div class="cyber-card-image">
+                <div class="cyber-card-image-inner">
+                  <img class="project-image-contain" src="assets/Gemini_Generated_Image_ta81v7ta81v7ta81.png" alt="ForecastAI command center dashboard preview">
+                </div>
+              </div>
+            </div>
           </article>
-          <article class="project-card reveal">
-            <h3>Project Three</h3>
-            <p>A third project summary to show variety and a stronger portfolio presence.</p>
+          <article class="project-card cyberpunk-card reveal">
+            <div class="cyber-card-inner">
+              <div class="cyber-card-copy">
+                <div class="cyber-card-header">
+                  <h3>SafeLLM: Local AI Security Proxy</h3>
+                  <span class="status-chip building-chip">
+                    <span class="cyber-status-dot building-dot"></span>
+                    Building
+                  </span>
+                </div>
+                <p>A local proxy middleware designed to sanitize prompts and files before cloud LLM inference.</p>
+                <div class="tech-list">
+                  <span class="tech-chip">FASTAPI</span>
+                  <span class="tech-chip">JWT</span>
+                  <span class="tech-chip">BCRYPT</span>
+                  <span class="tech-chip">SQLITE</span>
+                  <span class="tech-chip">GEMINI</span>
+                </div>
+                <button type="button" class="project-detail-button" data-open-project="safellm">
+                  <span>View Details</span>
+                  <span class="button-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+              <div class="cyber-card-image">
+                <div class="cyber-card-image-inner">
+                  <img class="project-image-contain" src="assets/image.png" alt="SafeLLM local AI security proxy preview">
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -178,23 +226,23 @@
         <div class="project-modal-stack">
           <header class="project-modal-hero">
             <h2 id="project-modal-title">EmpathAI</h2>
-            <p class="project-modal-subtitle">Privacy-First Multimodal Affective Computing Interface</p>
-            <p>Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
+            <p class="project-modal-subtitle" id="project-modal-subtitle">Privacy-First Multimodal Affective Computing Interface</p>
+            <p id="project-modal-intro">Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
           </header>
 
           <section class="project-modal-section">
-            <h3>The Design Intent</h3>
-            <p>Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
+            <h3 id="project-modal-design-title">The Design Intent</h3>
+            <p id="project-modal-design">Mental health support is inaccessible, and traditional AI chatbots are 'blind'. EmpathAI implements a Hybrid AI Architecture, an Edge AI approach where all facial detection happens locally within the browser to guarantee zero biometric video data is ever sent to a server.</p>
           </section>
 
           <section class="project-modal-section project-modal-section-purple">
             <h3>System Architecture</h3>
-            <p>The application uses a decoupled Client-Server architecture. The Edge Layer runs SSD MobileNet V1 locally to extract emotional tags. A lightweight JSON payload is sent via a FastAPI asynchronous endpoint. The Logic Layer performs Context-Aware Prompt Engineering using Google Gemini Pro, adapting the AI persona to the user's emotional state.</p>
+            <p id="project-modal-architecture">The application uses a decoupled Client-Server architecture. The Edge Layer runs SSD MobileNet V1 locally to extract emotional tags. A lightweight JSON payload is sent via a FastAPI asynchronous endpoint. The Logic Layer performs Context-Aware Prompt Engineering using Google Gemini Pro, adapting the AI persona to the user's emotional state.</p>
           </section>
 
           <section class="project-modal-section">
             <h3>Key Technical Decisions</h3>
-            <ul class="project-modal-list">
+            <ul class="project-modal-list" id="project-modal-decisions">
               <li>Browser-based Edge computing via Face-API.js for absolute biometric privacy.</li>
               <li>High-performance asynchronous FastAPI backend.</li>
               <li>Context-Aware Prompt Engineering mapping 7 distinct emotional states in real-time.</li>
@@ -203,7 +251,7 @@
 
           <section class="project-modal-section">
             <h3>Used Tech Stack</h3>
-            <div class="project-tech-icons" aria-label="EmpathAI technology stack">
+            <div class="project-tech-icons" id="project-modal-tech" aria-label="EmpathAI technology stack">
               <div class="project-tech-icon"><i class="devicon-python-plain colored" aria-hidden="true"></i><span>Python</span></div>
               <div class="project-tech-icon"><i class="devicon-fastapi-plain colored" aria-hidden="true"></i><span>FastAPI</span></div>
               <div class="project-tech-icon"><i class="devicon-javascript-plain colored" aria-hidden="true"></i><span>JavaScript</span></div>
@@ -213,7 +261,7 @@
           </section>
 
           <div class="project-modal-actions">
-            <a class="project-modal-primary" href="#">Access Live System</a>
+            <a class="project-modal-primary" id="project-modal-primary" href="#">Access Live System</a>
             <button class="project-modal-secondary" type="button" data-close-project>
               <span class="button-arrow" aria-hidden="true">&larr;</span>
               <span>Back to Projects</span>
